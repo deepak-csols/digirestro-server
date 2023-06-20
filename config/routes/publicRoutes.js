@@ -6,12 +6,14 @@ const publicRoutes = {
  
   'POST /order': 'OrderController.addOrder',
   'GET /getorder': 'OrderController.getOrderById',
-  'GET /getall': 'OrderController.getAll',
+  'GET /getallorders': 'OrderController.getAll',
+  'GET /getcompletedorders': 'OrderController.getCompletedOrders',
   'DELETE /deleteorder': 'OrderController.deleteOrder',
 
   'POST /settableid':  'TableOrderController.addTableOrder',
   'GET /gettableid': 'TableOrderController.getOrderIdByTableId',
   'DELETE /deletetableid': 'TableOrderController.deleteTableOrderMapping',
+  
 
   // 'POST /kot': 'OrderController.addKot',
   // 'GET /getorder': 'OrderController.getKotListById',

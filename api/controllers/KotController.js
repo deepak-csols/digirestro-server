@@ -71,7 +71,7 @@ const KotController = () => {
     const { orderid } = req.query;
     if (orderid) {
         try {
-          const order = await Orders
+          const order = await Kot
             .destroy({
               where: {
                 orderid

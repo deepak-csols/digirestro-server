@@ -1,3 +1,4 @@
+const { Op } = require('sequelize');
 const Orders = require('../models/Orders');
 
 const OrderController = () => {
@@ -73,6 +74,23 @@ const OrderController = () => {
     }
   };
 
+  const getCompletedOrders = async (req, res) => {
+    try {
+      const orders = await Orders.findAll({ 
+        where: {
+          orderid: {
+            [Op.like]: '%COMP_%'
+          }
+        }
+      });
+
+      return res.status(200).json({ orders });
+    } catch (err) {
+      console.log(err);
+      return res.status(500).json({ msg: 'Internal server error' });
+    }
+  };
+
   const deleteOrder = async (req, res) => { 
     const { orderid } = req.query;
     if (orderid) {
@@ -102,7 +120,8 @@ const OrderController = () => {
     addOrder,
     getOrderById,
     getAll,
-    deleteOrder
+    deleteOrder,
+    getCompletedOrders
   };
 };
 

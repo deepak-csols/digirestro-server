@@ -23,6 +23,7 @@ const environment = process.env.NODE_ENV;
  */
 const app = express();
 const server = http.Server(app);
+
 const mappedOpenRoutes = mapRoutes(config.publicRoutes, 'api/controllers/');
 const mappedAuthRoutes = mapRoutes(config.privateRoutes, 'api/controllers/');
 const DB = dbService(environment, config.migrate).start();
@@ -49,7 +50,7 @@ app.all('/private/*', (req, res, next) => auth(req, res, next));
 app.use('/public', mappedOpenRoutes);
 app.use('/private', mappedAuthRoutes);
 
-server.listen(config.port, () => {
+server.listen(config.port, '192.168.0.190', () => {
   if (environment !== 'production' &&
     environment !== 'development' &&
     environment !== 'testing'

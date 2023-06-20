@@ -40,7 +40,7 @@ const ExternalController = () => {
           });
 
         if (!order) {
-          return res.status(200).json({ status: 'success' });
+          return res.status(200).json({ status: false });
         }
 
         return res.status(200).json( order.externalOrderId );
