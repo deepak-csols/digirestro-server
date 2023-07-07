@@ -33,6 +33,13 @@ const publicRoutes = {
   //External Order Id
   'POST /externalorderid': 'ExternalController.addExternal',
   'GET /getexternalorderid': 'ExternalController.getExternalOrderId',
+
+
+  //Customer Orders API
+  'POST /addcustomer': 'CustomerController.addCustomer',
+  'GET /getcustomerbyid': 'CustomerController.getCustomerOrderById',
+  'GET /removecustomerbyid': 'CustomerController.removeCustomerById',
+
   
 };
 
